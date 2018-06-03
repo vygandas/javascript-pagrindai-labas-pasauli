@@ -7,9 +7,12 @@ import axios from 'axios';
       let knygos = response.data;
       console.log(knygos);
       console.log(knygos.length);
-
+      const booksListWrapper = document.getElementById('booksList');
       knygos.map(function(k) {
         console.log('Pavadinimas', k.title);
+        const bookElement = document.createElement('li');
+        bookElement.appendChild(document.createTextNode(k.title));
+        booksListWrapper.appendChild(bookElement);
       });
     })
     .catch(function (error) {
